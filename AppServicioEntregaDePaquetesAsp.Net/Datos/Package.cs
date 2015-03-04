@@ -9,14 +9,14 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Datos
     {
         #region "Atributos"
 
-        private string codigo;
-        private string nombre;
-        private string direccion;
-        private string ciudad;
-        private string estadoDepartamento;
-        private string codigoPostalR;
-        private string codigoPostalD;
-        private double peso;
+        public string codigo;
+        public string nombre;
+        public string direccion;
+        public string ciudad;
+        public string estadoDepartamento;
+        public string codigoPostalR;
+        public string codigoPostalD;
+        public double peso;
 
         #endregion
 
@@ -66,9 +66,9 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Datos
         #endregion
 
         #region "Costructor"
-        public Package(string id, string nombre,string direccion,string ciudad,string estadoDepartamento,string codigoPostalR,string codigoPostalD,double peso)
+        public Package(string codigo, string nombre, string direccion, string ciudad, string estadoDepartamento, string codigoPostalR, string codigoPostalD, double peso)
         {
-            this.codigo              = id;
+            this.codigo              = codigo;
             this.nombre              = nombre;
             this.direccion           = direccion;
             this.ciudad              = ciudad;
@@ -91,7 +91,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Datos
                    "\nEstado o Departamento:            " + this.estadoDepartamento +
                    "\nCodigo Postal del Remitente:      " + this.codigoPostalR +
                    "\nCodigo Postal del Destinatario:   " + this.codigoPostalD +
-                   "\nPeso del paqute (Kg):             " + this.codigoPostalD +
+                   "\nPeso del paqute (Kg):             " + this.peso +
                    "\n__________________________________________________________________";
         }
         public override int GetHashCode()
@@ -117,10 +117,5 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Datos
         }
         #endregion
 
-        #region "Metodos"
-
-        public double calculateCost;
-
-        #endregion
     }
 }
