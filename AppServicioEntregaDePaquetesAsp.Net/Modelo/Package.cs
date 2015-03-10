@@ -9,11 +9,16 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
     {
         #region "Atributos"
 
-        public string codigo;
-        public string nombre;
-        public string direccion;
-        public string ciudad;
-        public string estadoDepartamento;
+        public string codigoR;
+        public string codigoD;
+        public string nombreR;
+        public string nombreD;
+        public string direccionR;
+        public string direccionD;
+        public string ciudadR;
+        public string ciudadD;
+        public string estadoDepartamentoR;
+        public string estadoDepartamentoD;
         public string codigoPostalR;
         public string codigoPostalD;
         public double peso;
@@ -22,30 +27,55 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
 
         #region "Propiedades"
 
-        public string Codigo
+        public string CodigoR
         {
-            get { return codigo; }
-            set { codigo = value; }
+            get { return codigoR; }
+            set { codigoR = value; }
         }
-        public string Nombre
+        public string CodigoD
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return codigoD; }
+            set { codigoD = value; }
         }
-        public string Direccion
+        public string NombreR
         {
-            get { return direccion; }
-            set { direccion = value; }
+            get { return nombreR; }
+            set { nombreR = value; }
         }
-        public string Ciudad
+        public string NombreD
         {
-            get { return ciudad; }
-            set { ciudad = value; }
+            get { return nombreD; }
+            set { nombreD = value; }
         }
-        public string EstadoDepartamento
+        public string DireccionR
         {
-            get { return estadoDepartamento; }
-            set { estadoDepartamento = value; }
+            get { return direccionR; }
+            set { direccionR = value; }
+        }
+        public string DireccionD
+        {
+            get { return direccionD; }
+            set { direccionD = value; }
+        }
+        public string CiudadR
+        {
+            get { return ciudadR; }
+            set { ciudadR = value; }
+        }
+        public string CiudadD
+        {
+            get { return ciudadD; }
+            set { ciudadD = value; }
+        }
+        public string EstadoDepartamentoR
+        {
+            get { return estadoDepartamentoR; }
+            set { estadoDepartamentoR = value; }
+        }
+        public string EstadoDepartamentoD
+        {
+            get { return estadoDepartamentoD; }
+            set { estadoDepartamentoD = value; }
         }
         public string CodigoPostalR
         {
@@ -66,13 +96,14 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         #endregion
 
         #region "Costructor"
-        public Package(string codigo, string nombre, string direccion, string ciudad, string estadoDepartamento, string codigoPostalR, string codigoPostalD, double peso)
+        public Package(string codigoR,string codigoD, string nombreR,string nombreD, string direccionR, string ciudadR, string estadoDepartamentoR, string codigoPostalR, string codigoPostalD, double peso)
         {
-            this.codigo              = codigo;
-            this.nombre              = nombre;
-            this.direccion           = direccion;
-            this.ciudad              = ciudad;
-            this.estadoDepartamento  = estadoDepartamento;
+            this.codigoR              = codigoR;
+            this.codigoD = codigoD;
+            this.nombreR              = nombreR;
+            this.direccionR           = direccionR;
+            this.ciudadR              = ciudadR;
+            this.estadoDepartamentoR  = estadoDepartamentoR;
             this.codigoPostalR       = codigoPostalR;
             this.codigoPostalD       = codigoPostalD;
             this.peso                = peso;
@@ -83,16 +114,25 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         #region "Metos Sobre Escritos"
         public override string ToString()
         {
-            return "\n___________________________________________________________________" +
-                   "\nIdentificacion:                   " + this.codigo +
-                   "\nNombres:                          " + this.nombre +
-                   "\nDireccion:                        " + this.direccion +
-                   "\nCiudada:                          " + this.ciudad +
-                   "\nEstado o Departamento:            " + this.estadoDepartamento +
+            return "\n______________________________________________________________________" +
+                   "\n___________________________Datos del Remitente_________________________"+
+                   "\nIdentificacion:                   " + this.codigoR +
+                   "\nNombres:                          " + this.nombreR +
+                   "\nDireccion:                        " + this.direccionR +
+                   "\nCiudada:                          " + this.ciudadR +
+                   "\nEstado o Departamento:            " + this.estadoDepartamentoR +
                    "\nCodigo Postal del Remitente:      " + this.codigoPostalR +
+                   "\n_______________________________________________________________________" +
+                   "\n__________________________Datos de la rececror_________________________" +
+                   "\nIdentificacion:                   " + this.codigoR +
+                   "\nNombres:                          " + this.nombreR +
+                   "\nDireccion:                        " + this.direccionR +
+                   "\nCiudada:                          " + this.ciudadR +
+                   "\nEstado o Departamento:            " + this.estadoDepartamentoR +
                    "\nCodigo Postal del Destinatario:   " + this.codigoPostalD +
-                   "\nPeso del paqute (Kg):             " + this.peso +
-                   "\n__________________________________________________________________";
+                   "\n_______________________________________________________________________"+
+                   "\n____________________________Datos del paqute___________________________"+
+                   "\nPeso del paqute (Kg):             " + this.peso;
         }
         public override int GetHashCode()
         {
@@ -102,11 +142,16 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         {
             Package p = (Package)obj;
             bool result = false;
-            if ((this.codigo == p.codigo) &&
-                (this.nombre == p.nombre) &&
-                (this.direccion == p.direccion) &&
-                (this.ciudad == p.ciudad) &&
-                (this.estadoDepartamento == p.estadoDepartamento) &&
+            if ((this.codigoR == p.codigoR) &&
+                (this.codigoD == p.codigoD) &&
+                (this.nombreR == p.nombreR) &&
+                (this.nombreD == p.nombreD) &&
+                (this.direccionR == p.direccionR) &&
+                (this.direccionD == p.direccionD) &&
+                (this.ciudadR == p.ciudadR) &&
+                (this.ciudadD == p.ciudadD) &&
+                (this.estadoDepartamentoR == p.estadoDepartamentoR) &&
+                (this.estadoDepartamentoD == p.estadoDepartamentoD) &&
                 (this.codigoPostalR == p.codigoPostalR) &&
                 (this.codigoPostalD == p.codigoPostalD)&&
                 (this.peso == p.peso))
