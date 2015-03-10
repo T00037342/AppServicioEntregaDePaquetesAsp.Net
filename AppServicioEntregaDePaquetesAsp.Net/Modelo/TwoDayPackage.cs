@@ -9,14 +9,14 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
     public class TwoDayPackage : Package
     {
         #region "Atributos"
-        private double calculateCost;
+        public double calculateCosT;
         #endregion
 
         #region "Propiedades"
-        public double CalculateCost
+        public double CalculateCosT
         {
-            get { return calculateCost; }
-            set { calculateCost = value; }
+            get { return calculateCosT; }
+            set { calculateCosT = value; }
         }
         #endregion
 
@@ -25,7 +25,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
         public TwoDayPackage(string codigo, string nombre, string direccion, string ciudad, string estadoDepartamento, string codigoPostalR, string codigoPostalD, double peso)
         :base( codigo,  nombre,  direccion,  ciudad,  estadoDepartamento,  codigoPostalR,  codigoPostalD,  peso)
         {
-            this.calculateCost=0.0;
+            this.calculateCosT=0.0;
             this.codigo = codigo;
             this.nombre = nombre;
             this.direccion = direccion;
@@ -66,9 +66,9 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
                 (this.ciudad == p.ciudad) &&
                 (this.estadoDepartamento == p.estadoDepartamento) &&
                 (this.codigoPostalR == p.codigoPostalR) &&
-                (this.codigoPostalD == p.codigoPostalD)&&
-                (this.peso == p.peso)&&
-                (this.calculateCost == p.calculateCost))
+                (this.codigoPostalD == p.codigoPostalD) &&
+                (this.peso == p.peso) &&
+                (this.calculateCosT == p.calculateCosT)) 
 
             result = true;
 
