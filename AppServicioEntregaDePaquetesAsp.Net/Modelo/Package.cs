@@ -96,17 +96,24 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         #endregion
 
         #region "Costructor"
-        public Package(string codigoR,string codigoD, string nombreR,string nombreD, string direccionR, string ciudadR, string estadoDepartamentoR, string codigoPostalR, string codigoPostalD, double peso)
+        public Package(string codigoR,string codigoD, string nombreR,
+            string nombreD, string direccionR,string direccionD,
+            string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR, 
+            string codigoPostalD, double peso)
         {
-            this.codigoR              = codigoR;
-            this.codigoD = codigoD;
-            this.nombreR              = nombreR;
-            this.direccionR           = direccionR;
-            this.ciudadR              = ciudadR;
-            this.estadoDepartamentoR  = estadoDepartamentoR;
-            this.codigoPostalR       = codigoPostalR;
-            this.codigoPostalD       = codigoPostalD;
-            this.peso                = peso;
+            this.codigoR                     = codigoR;
+            this.codigoD                     = codigoD;
+            this.nombreR                     = nombreR;
+            this.nombreD                     = nombreD;
+            this.direccionR                  = direccionR;
+            this.direccionD                  = direccionD;
+            this.ciudadR                     = ciudadR;
+            this.ciudadD                     = ciudadD;
+            this.estadoDepartamentoR         = estadoDepartamentoR;
+            this.estadoDepartamentoD         = estadoDepartamentoD;
+            this.codigoPostalR               = codigoPostalR;
+            this.codigoPostalD               = codigoPostalD;
+            this.peso                        = peso;
         }
 
         #endregion
@@ -114,7 +121,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         #region "Metos Sobre Escritos"
         public override string ToString()
         {
-            return "\n______________________________________________________________________" +
+            return "\n_______________________________________________________________________" +
                    "\n___________________________Datos del Remitente_________________________"+
                    "\nIdentificacion:                   " + this.codigoR +
                    "\nNombres:                          " + this.nombreR +
