@@ -9,47 +9,63 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
     public class TwoDayPackage : Package
     {
         #region "Atributos"
-        private static double calculateCosT=0;
+        private double costoKg;
         #endregion
 
         #region "Propiedades"
-        public double CalculateCosT
+        public double CostoKg
         {
-            get { return calculateCosT; }
-            set { calculateCosT = value; }
+            get { return costoKg; }
+            set { costoKg = value; }
         }
         #endregion
 
         #region "Costructor"
-        
-        public TwoDayPackage(string codigo, string nombre, string direccion, string ciudad, string estadoDepartamento, string codigoPostalR, string codigoPostalD, double peso)
-        :base( codigo,  nombre,  direccion,  ciudad,  estadoDepartamento,  codigoPostalR,  codigoPostalD,  peso)
+        public TwoDayPackage(string codigoR,string codigoD, string nombreR,
+            string nombreD, string direccionR,string direccionD,
+            string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR, 
+            string codigoPostalD, double peso)
+            :base(codigoR,codigoD,nombreR,nombreD,direccionR,direccionD,ciudadR, ciudadD,estadoDepartamentoR,estadoDepartamentoD,codigoPostalR,codigoPostalD,peso)
         {
-            this.codigoR = codigo;
-            this.nombreR = nombre;
-            this.direccionR = direccion;
-            this.ciudadR = ciudad;
-            this.estadoDepartamentoR = estadoDepartamento;
-            this.codigoPostalR = codigoPostalR;
-            this.codigoPostalD = codigoPostalD;
-            this.peso = peso;
+            this.costoKg                     = 100.0;
+            this.codigoR                     = codigoR;
+            this.codigoD                     = codigoD;
+            this.nombreR                     = nombreR;
+            this.nombreD                     = nombreD;
+            this.direccionR                  = direccionR;
+            this.direccionD                  = direccionD;
+            this.ciudadR                     = ciudadR;
+            this.ciudadD                     = ciudadD;
+            this.estadoDepartamentoR         = estadoDepartamentoR;
+            this.estadoDepartamentoD         = estadoDepartamentoD;
+            this.codigoPostalR               = codigoPostalR;
+            this.codigoPostalD               = codigoPostalD;
+            this.peso                        = peso;
         }
-
         #endregion
 
-        #region "Metos Sobre Escritos"
-         public override string ToString()
+            #region "Metos Sobre Escritos"
+        public override string ToString()
         {
-            return "\n___________________________________________________________________" +
+            return "\n_______________________________________________________________________" +
+                   "\n___________________________Datos del Remitente_________________________"+
                    "\nIdentificacion:                   " + this.codigoR +
                    "\nNombres:                          " + this.nombreR +
                    "\nDireccion:                        " + this.direccionR +
                    "\nCiudada:                          " + this.ciudadR +
                    "\nEstado o Departamento:            " + this.estadoDepartamentoR +
                    "\nCodigo Postal del Remitente:      " + this.codigoPostalR +
+                   "\n_______________________________________________________________________" +
+                   "\n__________________________Datos de la rececror_________________________" +
+                   "\nIdentificacion:                   " + this.codigoR +
+                   "\nNombres:                          " + this.nombreR +
+                   "\nDireccion:                        " + this.direccionR +
+                   "\nCiudada:                          " + this.ciudadR +
+                   "\nEstado o Departamento:            " + this.estadoDepartamentoR +
                    "\nCodigo Postal del Destinatario:   " + this.codigoPostalD +
-                   "\nPeso del paqute (Kg):             " + this.peso +
-                   "\n__________________________________________________________________";
+                   "\n_______________________________________________________________________"+
+                   "\n____________________________Datos del paqute___________________________"+
+                   "\nPeso del paqute (Kg):             " + this.peso;
         }
         public override int GetHashCode()
         {
@@ -57,20 +73,33 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
         }
         public override bool Equals(object obj)
         {
-            Package p = (Package)obj;
+            TwoDayPackage p = (TwoDayPackage)obj;
             bool result = false;
-            if ((this.nombreR == p.nombreR) &&
+            if ((this.codigoR == p.codigoR) &&
+                (this.codigoD == p.codigoD) &&
+                (this.nombreR == p.nombreR) &&
+                (this.nombreD == p.nombreD) &&
                 (this.direccionR == p.direccionR) &&
+                (this.direccionD == p.direccionD) &&
                 (this.ciudadR == p.ciudadR) &&
+                (this.ciudadD == p.ciudadD) &&
                 (this.estadoDepartamentoR == p.estadoDepartamentoR) &&
+                (this.estadoDepartamentoD == p.estadoDepartamentoD) &&
                 (this.codigoPostalR == p.codigoPostalR) &&
-                (this.codigoPostalD == p.codigoPostalD) &&
-                (this.peso == p.peso) &&
-                (this.codigoR == p.codigoR)) 
+                (this.codigoPostalD == p.codigoPostalD)&&
+                (this.peso == p.peso)&&
+                (this.costoKg == p.costoKg))
 
             result = true;
 
         return result;
+        }
+        #endregion
+
+        #region"Metodos"
+        public void CalculateCosT()
+        { 
+            double pagar = this.peso * this.costoKg;
         }
         #endregion
     }

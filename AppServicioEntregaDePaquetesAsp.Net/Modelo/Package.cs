@@ -96,8 +96,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         #endregion
 
         #region "Costructor"
-        public Package(string codigoR,string codigoD, string nombreR,
-            string nombreD, string direccionR,string direccionD,
+        public Package(string codigoR,string codigoD, string nombreR, string nombreD, string direccionR,string direccionD,
             string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR, 
             string codigoPostalD, double peso)
         {
