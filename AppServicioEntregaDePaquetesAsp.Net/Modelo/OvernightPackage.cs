@@ -5,17 +5,17 @@ using System.Web;
 
 namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
 {
-    public class OvernightPackage : TwoDayPackage
+    public class OvernightPackage : Package
     {
         #region "Atributos"
-        private double cuota;
+        private double cuotaR;
         #endregion
 
         #region "Propiedades"
         public double Cuata
         {
-            get { return cuota; }
-            set { cuota = value; }
+            get { return cuotaR; }
+            set { cuotaR = value; }
         }
         #endregion
 
@@ -39,7 +39,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
             this.codigoPostalD               = codigoPostalD;
             this.peso                        = peso;
             this.Pagar                       = pagar;
-            this.cuota                       = cuota;
+            this.cuotaR                       = cuota;
         }
         #endregion
 
@@ -87,7 +87,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
                 (this.peso == p.peso) &&
                 (this.costoKg == p.costoKg)&&
                 (this.pagar == p.pagar) &&
-                (this.cuota == p.cuota))
+                (this.cuotaR == p.cuotaR))
 
             result = true;
 
@@ -101,17 +101,17 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
             if(this.pagar<=0){
                 //Error
             }if(this.pagar>= 1.0 && this.pagar<5000.0) {
-                this.cuota = this.pagar + 2000.0;
+                this.cuotaR = this.pagar + 4000.0;
             }if (this.pagar >= 5000.0 && this.pagar < 12000.0) {
-                this.cuota = this.pagar + 3000.0;
+                this.cuotaR = this.pagar + 6000.0;
             }if (this.pagar >= 20000.0 && this.pagar < 40000.0) {
-                this.cuota = this.pagar + 6000.0;
+                this.cuotaR = this.pagar + 10000.0;
             }if (this.pagar >= 40000.0 && this.pagar < 80000.0) {
-                this.cuota = this.pagar + 10000.0;
+                this.cuotaR = this.pagar + 15000.0;
             }if (this.pagar >= 80000.0 && this.pagar < 100000.0) {
-                this.cuota = this.pagar + 15000.0;
+                this.cuotaR = this.pagar + 20000.0;
             } if (this.pagar > 100000.0) {
-                this.cuota = this.pagar + 20000.0;
+                this.cuotaR = this.pagar + 25000.0;
             }
         }
         #endregion
