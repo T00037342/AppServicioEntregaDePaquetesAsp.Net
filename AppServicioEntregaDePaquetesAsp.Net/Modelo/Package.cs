@@ -22,6 +22,10 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         public string codigoPostalR;
         public string codigoPostalD;
         public double peso;
+        public double costoKg;
+        public double pagar;
+
+        
 
         #endregion
 
@@ -92,13 +96,23 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
             get { return peso; }
             set { peso = value; }
         }
+        public double CostoKg
+        {
+            get { return costoKg; }
+            set { costoKg = value; }
+        }
+        public double Pagar
+        {
+            get { return pagar; }
+            set { pagar = value; }
+        }
 
         #endregion
 
         #region "Costructor"
-        public Package(string codigoR,string codigoD, string nombreR, string nombreD, string direccionR,string direccionD,
-            string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR, 
-            string codigoPostalD, double peso)
+        public Package(string codigoR, string codigoD, string nombreR, string nombreD, string direccionR, string direccionD,
+            string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR,
+            string codigoPostalD, double peso, double costoKg, double pagar)
         {
             this.codigoR                     = codigoR;
             this.codigoD                     = codigoD;
@@ -113,6 +127,8 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
             this.codigoPostalR               = codigoPostalR;
             this.codigoPostalD               = codigoPostalD;
             this.peso                        = peso;
+            this.costoKg                     = 1000.0;
+            this.pagar                       = 0;
         }
 
         #endregion
@@ -160,13 +176,20 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
                 (this.estadoDepartamentoD == p.estadoDepartamentoD) &&
                 (this.codigoPostalR == p.codigoPostalR) &&
                 (this.codigoPostalD == p.codigoPostalD)&&
-                (this.peso == p.peso))
+                (this.peso == p.peso) &&
+                (this.costoKg == p.costoKg)&&
+                (this.pagar == p.pagar))
 
             result = true;
 
         return result;
         }
         #endregion
-
+        #region"Metodos"
+        public void CalculateCosT()
+        {
+             this.pagar = this.peso * this.costoKg;
+        }
+        #endregion
     }
 }
