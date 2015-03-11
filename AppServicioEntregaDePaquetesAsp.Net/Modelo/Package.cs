@@ -185,6 +185,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelos
         return result;
         }
         #endregion
+
         #region"Metodos"
         public void CalculateCosT()
         {

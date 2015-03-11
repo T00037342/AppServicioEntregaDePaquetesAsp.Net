@@ -1,12 +1,11 @@
-﻿using AppServicioEntregaDePaquetesAsp.Net.Modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
 {
-    public class TwoDayPackage : Package
+    public class OvernightPackage : TwoDayPackage
     {
         #region "Atributos"
         private double cuota;
@@ -21,7 +20,7 @@ namespace AppServicioEntregaDePaquetesAsp.Net.Modelo
         #endregion
 
         #region "Costructor"
-        public TwoDayPackage(string codigoR, string codigoD, string nombreR, string nombreD, string direccionR, string direccionD,
+        public OvernightPackage(string codigoR, string codigoD, string nombreR, string nombreD, string direccionR, string direccionD,
             string ciudadR, string ciudadD, string estadoDepartamentoR, string estadoDepartamentoD, string codigoPostalR,
             string codigoPostalD, double peso, double costoKg,double pagar,double cuota)
             :base( codigoR,  codigoD,  nombreR,  nombreD,  direccionR,  direccionD, ciudadR,  ciudadD,  estadoDepartamentoR, 
